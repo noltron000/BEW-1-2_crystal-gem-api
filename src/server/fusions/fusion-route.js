@@ -4,6 +4,6 @@ const router = express.Router(); // eslint-disable-line new-cap
 
 router.route('/');
 
-// #TODO: Implement thing.route.js.
+// #TODO: Implement fusion-route.js.
 
 module.exports = router;

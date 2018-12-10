@@ -1,1 +1,1 @@
-// #TODO: Implement thing.controller.js.
+// #TODO: Implement fusion-controller.js.

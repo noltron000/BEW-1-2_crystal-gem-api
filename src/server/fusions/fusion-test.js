@@ -14,6 +14,6 @@ after((done) => {
 	done();
 });
 
-describe('## Thing APIs', () => {
-	// #TODO: Implement thing.test.js.
+describe('## Fusion APIs', () => {
+	// #TODO: Implement fusion-test.js.
 });

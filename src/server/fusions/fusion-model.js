@@ -1,4 +1,4 @@
-// #TODO: Implement thing.model.js.
+// #TODO: Implement fusion-model.js.
 const mongoose = require('mongoose');
 
 // Set Schema

@@ -14,6 +14,6 @@ after((done) => {
 	done();
 });
 
-describe('## Thing APIs', () => {
-	// #TODO: Implement thing.test.js.
+describe('## Gem APIs', () => {
+	// #TODO: Implement gem-test.js.
 });
