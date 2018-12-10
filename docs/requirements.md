@@ -11,25 +11,25 @@ Custom, authenticated API instructions and starter pack for BEW1.2 students!
 1. Fork this repository and clone your fork locally.
 1. Open the repository folder in your editor of choice:
 
-    ```bash
-    $ cd auth-api-starterpack
-    $ atom .
-    ```
+```bash
+	$ cd auth-api-starterpack
+	$ atom .
+```
 
 1. Move the contents of this `README.md` file to `docs/requirements.md`.
 
-    ```bash
-    $ mv README.md docs/requirements.md
-    $ touch README.md
-    ```
+```bash
+	$ mv README.md docs/requirements.md
+	$ touch README.md
+```
 
 1. Add your project's title in the header, save, and close `README.md`.
 1. Navigate to the `src` directory in your terminal.
 1. Copy the contents of example `.env.example` file to `.env`:
 
-    ```bash
-    $ cp .env.example .env
-    ```
+```bash
+	$ cp .env.example .env
+```
 
 1. Run `nvm use` to activate the v8.11.1 node environment.
 1. Run `yarn install` to install project dependencies into the activated environment.
