@@ -45,4 +45,15 @@ app.get('/', (req, res) => {
 	res.render('home.hbs');
 });
 
+// require other routes
+const gems = require('./server/gems/gem-controller.js');
+const fusions = require('./server/fusions/fusion-controller.js');
+
+// use the routes
+app.use('/gems', gems);
+app.use('/fusions', fusions);
+
+// // get data
+// const data = require('./data/flamewarz-db.js');
+
 module.exports = app;

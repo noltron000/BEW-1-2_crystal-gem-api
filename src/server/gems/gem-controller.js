@@ -3,29 +3,30 @@ const Gem = require('../gems/gem-model.js');
 const Fusion = require('../fusions/fusion-model.js');
 
 const router = new express.Router();
-router.get('/gem', (req, res) => { // INDEX //
+router.get('/', (req, res) => { // INDEX //
 	// indexes all gems
 	Gem
 		.find({})
 		.then((gem) => {
 			res
-				.status(200)
+				// .render('gems-index', { gem })
 				.json({
 					message: 'Get all gems',
 					gem
-				});
+				})
+				.status(200);
 		})
 		.catch((err) => {
 			console.log(err.message);
 		});
 });
 
-router.get('/gem/new', (req, res) => { // NEW //
+router.get('/new', (req, res) => { // NEW //
 	// shows a gem creation form
 	res.render('gems-new.hbs');
 });
 
-router.post('/gem', (req, res) => { // CREATE //
+router.post('/', (req, res) => { // CREATE //
 	// creates a new gem
 	const gem = new Gem(req.body);
 	gem
@@ -37,7 +38,7 @@ router.post('/gem', (req, res) => { // CREATE //
 		});
 });
 
-router.get('/gem/:gemID', (req, res) => { // SHOW //
+router.get('/:gemID', (req, res) => { // SHOW //
 	// shows a single gem in detail
 	Gem
 		.findById(req.params.gemID)
@@ -45,20 +46,32 @@ router.get('/gem/:gemID', (req, res) => { // SHOW //
 			Fusion
 				.find({ gem })
 				.then((fusion) => {
-					res.render('fusion-show.hbs', { gem, fusion });
+					res
+						// .render('gem-show.hbs', { gem, fusion })
+						.json({
+							message: 'Show this fusion with the gems who create it',
+							gem,
+							fusion
+						})
+						.status(200);
 				});
+		})
+		.catch((err) => {
+			console.log(err.message);
 		});
 });
 
-router.get('/gem/:gemID/edit', (req, res) => { // EDIT //
+router.get('/:gemID/edit', (req, res) => { // EDIT //
 	// shows a gem edit form
 	res.render('gems-edit');
 });
 
-router.put('/gem/:gemID', (req, res) => { // UPDATE //
+router.put('/:gemID', (req, res) => { // UPDATE //
 	console.log(res);
 });
 
-router.delete('/gem/:gemID', (req, res) => { // DELETE //
+router.delete('/:gemID', (req, res) => { // DELETE //
 	console.log(res);
 });
+
+module.exports = router;

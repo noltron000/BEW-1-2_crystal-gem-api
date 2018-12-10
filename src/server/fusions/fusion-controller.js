@@ -3,12 +3,13 @@ const Gem = require('../gems/gem-model.js');
 const Fusion = require('../fusions/fusion-model.js');
 
 const router = new express.Router();
-router.get('/fusion', (req, res) => { // INDEX //
+router.get('/', (req, res) => { // INDEX //
 	// indexes all fusions
 	Fusion
 		.find({})
 		.then((fusion) => {
 			res
+				// .render('fusion-index', { fusion })
 				.status(200)
 				.json({
 					message: 'Get all fusions',
@@ -20,12 +21,12 @@ router.get('/fusion', (req, res) => { // INDEX //
 		});
 });
 
-router.get('/fusion/new', (req, res) => { // NEW //
+router.get('/new', (req, res) => { // NEW //
 	// shows a fusion creation form
 	res.render('fusions-new.hbs');
 });
 
-router.post('/fusion/', (req, res) => { // CREATE //
+router.post('/', (req, res) => { // CREATE //
 	// creates a new fusion
 	const fusion = new Fusion(req.body);
 	fusion
@@ -37,7 +38,7 @@ router.post('/fusion/', (req, res) => { // CREATE //
 		});
 });
 
-router.get('/fusion/:fusionID', (req, res) => { // SHOW //
+router.get('/:fusionID', (req, res) => { // SHOW //
 	// shows a single fusion in detail
 	Fusion
 		.findById(req.params.fusionID)
@@ -45,20 +46,32 @@ router.get('/fusion/:fusionID', (req, res) => { // SHOW //
 			Gem
 				.find({ fusion })
 				.then((gem) => {
-					res.render('fusion-show.hbs', { gem, fusion });
+					res
+						// .render('fusion-show.hbs', { gem, fusion })
+						.json({
+							message: 'Show this fusion with the gems who create it',
+							gem,
+							fusion
+						})
+						.status(200);
 				});
+		})
+		.catch((err) => {
+			console.log(err.message);
 		});
 });
 
-router.get('/fusion/:fusionID/edit', (req, res) => { // EDIT //
+router.get('/:fusionID/edit', (req, res) => { // EDIT //
 	// shows a fusion edit form
 	res.render('fusions-edit');
 });
 
-router.put('/fusion/:fusionID', (req, res) => { // UPDATE //
+router.put('/:fusionID', (req, res) => { // UPDATE //
 	console.log(res);
 });
 
-router.delete('/fusion/:fusionID', (req, res) => { // DELETE //
+router.delete('/:fusionID', (req, res) => { // DELETE //
 	console.log(res);
 });
+
+module.exports = router;
