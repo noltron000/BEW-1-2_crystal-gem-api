@@ -1,7 +1,7 @@
 const express = require('express');
 const Gem = require('./gem-model.js');
 
-const router = express.router();
+const router = express.Router();
 router.get('/gem', (req, res) => { // INDEX
 	Gem
 		.find({})
