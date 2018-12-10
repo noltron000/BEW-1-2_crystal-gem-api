@@ -1,5 +1,4 @@
 const express = require('express');
-const exprHBS = require('express-handlebars');
 const thingRoutes = require('./server/thing/thing.route');
 const authRoutes = require('./server/auth/auth.route');
 

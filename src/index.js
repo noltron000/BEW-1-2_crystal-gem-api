@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const util = require('util');
+const exprHBS = require('express-handlebars');
 
 // config should be imported before importing any other file
 const config = require('./config/config');
-
 const app = require('./config/express');
 const debug = require('debug')('auth-api-starterpack:index');
 
@@ -29,6 +29,10 @@ if (config.mongooseDebug) {
 
 // # TODO: Any additional config changes belong here.
 
+// set up handlebars
+app.engine('.hbs', exprHBS({ extname: '.hbs', defaultLayout: 'main' }));
+app.set('view engine', 'hbs');
+
 // module.parent check is required to support mocha watch
 // src: https://github.com/mochajs/mocha/issues/1912
 if (!module.parent) {
@@ -37,5 +41,9 @@ if (!module.parent) {
 		console.info(`server started on port ${config.port} (${config.env})`); // eslint-disable-line no-console
 	});
 }
+
+app.get('/', (req, res) => {
+	res.render('home.hbs');
+});
 
 module.exports = app;
