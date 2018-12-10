@@ -52,11 +52,11 @@ router.get('/gem/:gemID', (req, res) => { // SHOW //
 
 router.get('/gem/:gemID/edit', (req, res) => { // EDIT //
 	// shows a gem edit form
-	console.log(res);
+	res.render('gems-edit');
 });
 
 router.put('/gem/:gemID', (req, res) => { // UPDATE //
-	res.render('gems-edit');
+	console.log(res);
 });
 
 router.delete('/gem/:gemID', (req, res) => { // DELETE //

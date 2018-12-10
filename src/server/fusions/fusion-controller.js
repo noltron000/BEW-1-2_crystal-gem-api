@@ -50,14 +50,13 @@ router.get('/fusion/:fusionID', (req, res) => { // SHOW //
 		});
 });
 
-
 router.get('/fusion/:fusionID/edit', (req, res) => { // EDIT //
-	console.log(res);
+	// shows a fusion edit form
+	res.render('fusions-edit');
 });
 
 router.put('/fusion/:fusionID', (req, res) => { // UPDATE //
-	// shows a fusion edit form
-	res.render('fusions-edit');
+	console.log(res);
 });
 
 router.delete('/fusion/:fusionID', (req, res) => { // DELETE //
