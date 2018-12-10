@@ -27,8 +27,6 @@ if (config.mongooseDebug) {
 	});
 }
 
-// # TODO: Any additional config changes belong here.
-
 // set up handlebars
 app.engine('.hbs', exprHBS({ extname: '.hbs', defaultLayout: 'main' }));
 app.set('view engine', 'hbs');
@@ -42,6 +40,7 @@ if (!module.parent) {
 	});
 }
 
+// start up basic routes
 app.get('/', (req, res) => {
 	res.render('home.hbs');
 });

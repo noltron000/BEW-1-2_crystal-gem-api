@@ -1,8 +1,10 @@
 const express = require('express');
-const Fusion = require('./fusion-model.js');
+const Gem = require('../gems/gem-model.js');
+const Fusion = require('../fusions/fusion-model.js');
 
 const router = new express.Router();
-router.get('/fusion', (req, res) => { // INDEX
+router.get('/fusion', (req, res) => { // INDEX //
+	// indexes all fusions
 	Fusion
 		.find({})
 		.then((fusion) => {
@@ -18,26 +20,46 @@ router.get('/fusion', (req, res) => { // INDEX
 		});
 });
 
-router.get('/fusion/new', (req, res) => { // NEW
+router.get('/fusion/new', (req, res) => { // NEW //
+	// shows a fusion creation form
+	res.render('fusions-new.hbs');
+});
+
+router.post('/fusion/', (req, res) => { // CREATE //
+	// creates a new fusion
+	const fusion = new Fusion(req.body);
+	fusion
+		.save(() => {
+			res.redirect('/fusion');
+		})
+		.catch((err) => {
+			console.log(err.message);
+		});
+});
+
+router.get('/fusion/:fusionID', (req, res) => { // SHOW //
+	// shows a single fusion in detail
+	Fusion
+		.findById(req.params.fusionID)
+		.then((fusion) => {
+			Gem
+				.find({ fusion })
+				.then((gem) => {
+					res.render('fusion-show.hbs', { gem, fusion });
+				});
+		});
+});
+
+
+router.get('/fusion/:fusionID/edit', (req, res) => { // EDIT //
 	console.log(res);
 });
 
-router.post('/fusion/', (req, res) => { // CREATE
-	console.log(res);
+router.put('/fusion/:fusionID', (req, res) => { // UPDATE //
+	// shows a fusion edit form
+	res.render('fusions-edit');
 });
 
-router.get('/fusion/:fusionID', (req, res) => { // SHOW
-	console.log(res);
-});
-
-router.get('/fusion/:fusionID/edit', (req, res) => { // EDIT
-	console.log(res);
-});
-
-router.put('/fusion/:fusionID', (req, res) => { // UPDATE
-	console.log(res);
-});
-
-router.delete('/fusion/:fusionID', (req, res) => { // DELETE
+router.delete('/fusion/:fusionID', (req, res) => { // DELETE //
 	console.log(res);
 });
