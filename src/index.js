@@ -1,10 +1,9 @@
-const mongoose = require('mongoose');
-const util = require('util');
-const exprHBS = require('express-handlebars');
-
 // config should be imported before importing any other file
 const config = require('./config/config');
 const app = require('./config/express');
+const exprHBS = require('express-handlebars');
+const mongoose = require('mongoose');
+const util = require('util');
 const debug = require('debug')('auth-api-starterpack:index');
 
 mongoose.Promise = Promise;
@@ -16,6 +15,7 @@ mongoose.connect(
 	{ useNewUrlParser: true },
 	{ server: { socketOptions: { keepAlive: 1 } } }
 );
+
 mongoose.connection.on('error', () => {
 	throw new Error(`unable to connect to database: ${mongoUri}`);
 });

@@ -1,7 +1,7 @@
 const express = require('express');
 const Fusion = require('./fusion-model.js');
 
-const router = express.Router();
+const router = new express.Router();
 router.get('/fusion', (req, res) => { // INDEX
 	Fusion
 		.find({})
