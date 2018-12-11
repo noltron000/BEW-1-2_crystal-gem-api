@@ -10,11 +10,11 @@ router.get('/', (req, res) => { // INDEX //
 		.then((fusion) => {
 			res
 				// .render('fusion-index', { fusion })
-				.status(200)
 				.json({
 					message: 'Get all fusions',
 					fusion
-				});
+				})
+				.status(200);
 		})
 		.catch((err) => {
 			console.log(err.message);

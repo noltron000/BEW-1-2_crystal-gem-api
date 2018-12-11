@@ -34,7 +34,7 @@ router.post('/', (req, res) => { // CREATE //
 			res.redirect('/gem');
 		})
 		.catch((err) => {
-			console.log(err);
+			console.log(err.message);
 		});
 });
 
