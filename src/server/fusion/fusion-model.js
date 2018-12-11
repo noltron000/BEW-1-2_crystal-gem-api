@@ -8,6 +8,10 @@ const FusionSchema = new Schema({
 		type: String,
 		required: true
 	},
+	gems: [{
+		type: Schema.Types.ObjectId,
+		ref: 'Gem',
+	}],
 	weapon: {
 		type: String,
 		required: true

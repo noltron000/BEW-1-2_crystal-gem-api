@@ -8,7 +8,7 @@ This API will serve information for gems in the Steven Universe cartoon.
 - [ ] Gem
 	- [ ] gem-controller
 		- [X] index
-		- [ ] new
+		- [X] new
 		- [ ] create
 		- [ ] show
 		- [ ] edit
@@ -18,7 +18,7 @@ This API will serve information for gems in the Steven Universe cartoon.
 - [ ] Fusion
 	- [ ] fusion-controller
 		- [X] index
-		- [ ] new
+		- [X] new
 		- [ ] create
 		- [ ] show
 		- [ ] edit

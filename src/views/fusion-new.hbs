@@ -9,16 +9,16 @@
 		</legend>
 
 		<div>
-			<label for='fusion'>
+			<label for='name'>
 				Fusion Gem
 			</label><br />
-			<input type='text' name='fusion' id='fusion' />
+			<input type='text' name='name' id='name' />
 		</div>
 
 		{{#each gem}}
 		<div>
-			<input type='checkbox' name='{{this.name}}' id='{{this.name}}' />
-			<label for='{{this.name}}'>
+			<input type='checkbox' name='{{this._id}}' id='{{this._id}}' />
+			<label for='{{this._id}}'>
 				{{this.name}}
 			</label>
 		</div>

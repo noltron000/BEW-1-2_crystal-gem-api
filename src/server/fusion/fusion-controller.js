@@ -23,14 +23,26 @@ router.get('/', (req, res) => { // INDEX //
 
 router.get('/new', (req, res) => { // NEW //
 	// shows a fusion creation form
-	res.render('fusion-new.hbs');
+	Gem
+		.find({})
+		.then((gem) => {
+			res.render('fusion-new.hbs', { gem });
+		});
 });
 
 router.post('/', (req, res) => { // CREATE //
 	// creates a new fusion
-	const fusion = new Fusion(req.body);
+	const fusionBody = req.body;
+	fusionBody.gems = [];
+	for (const key in fusionBody) {
+		if (fusionBody[key] === 'on') {
+			fusionBody.gems.unshift(key);
+		}
+	}
+	const fusion = new Fusion(fusionBody);
 	fusion
-		.save(() => {
+		.save()
+		.then(() => {
 			res.redirect('/fusion');
 		})
 		.catch((err) => {

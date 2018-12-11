@@ -30,7 +30,8 @@ router.post('/', (req, res) => { // CREATE //
 	// creates a new gem
 	const gem = new Gem(req.body);
 	gem
-		.save(() => {
+		.save()
+		.then(() => {
 			res.redirect('/gem');
 		})
 		.catch((err) => {

@@ -6,13 +6,9 @@ const Schema = mongoose.Schema;
 const GemSchema = new Schema({
 	name: {
 		type: String,
-		required: true
+		required: true,
+		unique: true
 	},
-	gems: [{
-		type: Schema.Types.ObjectId,
-		ref: 'Gem',
-		required: true
-	}],
 	weapon: {
 		type: String,
 		required: true
