@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const util = require('util');
 const debug = require('debug')('auth-api-starterpack:index');
 
+// get promise
 mongoose.Promise = Promise;
 
 // connect to mongo db
@@ -46,12 +47,12 @@ app.get('/', (req, res) => {
 });
 
 // require other routes
-const gems = require('./server/gems/gem-controller.js');
-const fusions = require('./server/fusions/fusion-controller.js');
+const gem = require('./server/gem/gem-controller.js');
+const fusion = require('./server/fusion/fusion-controller.js');
 
 // use the routes
-app.use('/gems', gems);
-app.use('/fusions', fusions);
+app.use('/gem', gem);
+app.use('/fusion', fusion);
 
 // // get data
 // const data = require('./data/flamewarz-db.js');

@@ -1,6 +1,6 @@
 const express = require('express');
-const Gem = require('../gems/gem-model.js');
-const Fusion = require('../fusions/fusion-model.js');
+const Gem = require('../gem/gem-model.js');
+const Fusion = require('../fusion/fusion-model.js');
 
 const router = new express.Router();
 router.get('/', (req, res) => { // INDEX //
@@ -23,7 +23,7 @@ router.get('/', (req, res) => { // INDEX //
 
 router.get('/new', (req, res) => { // NEW //
 	// shows a fusion creation form
-	res.render('fusions-new.hbs');
+	res.render('fusion-new.hbs');
 });
 
 router.post('/', (req, res) => { // CREATE //
@@ -63,7 +63,7 @@ router.get('/:fusionID', (req, res) => { // SHOW //
 
 router.get('/:fusionID/edit', (req, res) => { // EDIT //
 	// shows a fusion edit form
-	res.render('fusions-edit');
+	res.render('fusion-edit');
 });
 
 router.put('/:fusionID', (req, res) => { // UPDATE //

@@ -1,6 +1,6 @@
 const express = require('express');
-const Gem = require('../gems/gem-model.js');
-const Fusion = require('../fusions/fusion-model.js');
+const Gem = require('../gem/gem-model.js');
+const Fusion = require('../fusion/fusion-model.js');
 
 const router = new express.Router();
 router.get('/', (req, res) => { // INDEX //
@@ -9,7 +9,7 @@ router.get('/', (req, res) => { // INDEX //
 		.find({})
 		.then((gem) => {
 			res
-				// .render('gems-index', { gem })
+				// .render('gem-index', { gem })
 				.json({
 					message: 'Get all gems',
 					gem
@@ -23,7 +23,7 @@ router.get('/', (req, res) => { // INDEX //
 
 router.get('/new', (req, res) => { // NEW //
 	// shows a gem creation form
-	res.render('gems-new.hbs');
+	res.render('gem-new.hbs');
 });
 
 router.post('/', (req, res) => { // CREATE //
@@ -34,7 +34,7 @@ router.post('/', (req, res) => { // CREATE //
 			res.redirect('/gem');
 		})
 		.catch((err) => {
-			console.log(err.message);
+			console.log(err);
 		});
 });
 
@@ -63,7 +63,7 @@ router.get('/:gemID', (req, res) => { // SHOW //
 
 router.get('/:gemID/edit', (req, res) => { // EDIT //
 	// shows a gem edit form
-	res.render('gems-edit');
+	res.render('gem-edit');
 });
 
 router.put('/:gemID', (req, res) => { // UPDATE //
