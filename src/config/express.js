@@ -3,6 +3,7 @@ const express = require('express');
 const exprHBS = require('express-handlebars');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+// Required files
 const routes = require('../index-route.js');
 const auth = require('../server/auth/auth-route');
 const gem = require('../server/gem/gem-controller.js');
