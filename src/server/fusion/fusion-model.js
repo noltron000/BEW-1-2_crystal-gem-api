@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 const FusionSchema = new Schema({
 	name: {
 		type: String,
-		required: true
+		required: true,
+		unique: true
 	},
 	gems: [{
 		type: Schema.Types.ObjectId,

@@ -9,7 +9,25 @@ router.get('/', (req, res) => { // INDEX //
 		.find({})
 		.then((gem) => {
 			res
-				// .render('gem-index', { gem })
+				.render('gem-index', { gem });
+			// .json({
+			// 	message: 'Get all gems',
+			// 	gem
+			// })
+			// .status(200);
+		})
+		.catch((err) => {
+			console.log(err.message);
+		});
+});
+
+router.get('/json', (req, res) => { // INDEX JSON //
+	// indexes all gems and returns json
+	Gem
+		.find({})
+		.then((gem) => {
+			res
+				// .render('gem-index', { gem });
 				.json({
 					message: 'Get all gems',
 					gem
@@ -48,7 +66,30 @@ router.get('/:gemID', (req, res) => { // SHOW //
 				.find({ gem })
 				.then((fusion) => {
 					res
-						// .render('gem-show.hbs', { gem, fusion })
+						.render('gem-show.hbs', { gem, fusion });
+					// .json({
+					// 	message: 'Show this fusion with the gems who create it',
+					// 	gem,
+					// 	fusion
+					// })
+					// .status(200);
+				});
+		})
+		.catch((err) => {
+			console.log(err.message);
+		});
+});
+
+router.get('/:gemID/json', (req, res) => { // SHOW JSON //
+	// shows a single gem in detail
+	Gem
+		.findById(req.params.gemID)
+		.then((gem) => {
+			Fusion
+				.find({ gem })
+				.then((fusion) => {
+					res
+						// .render('gem-show.hbs', { gem, fusion });
 						.json({
 							message: 'Show this fusion with the gems who create it',
 							gem,

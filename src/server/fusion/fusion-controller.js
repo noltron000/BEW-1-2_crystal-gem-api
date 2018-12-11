@@ -9,7 +9,25 @@ router.get('/', (req, res) => { // INDEX //
 		.find({})
 		.then((fusion) => {
 			res
-				// .render('fusion-index', { fusion })
+				.render('fusion-index', { fusion });
+			// .json({
+			// 	message: 'Get all fusions',
+			// 	fusion
+			// })
+			// .status(200);
+		})
+		.catch((err) => {
+			console.log(err.message);
+		});
+});
+
+router.get('/json', (req, res) => { // INDEX JSON //
+	// indexes all fusions
+	Fusion
+		.find({})
+		.then((fusion) => {
+			res
+				// .render('fusion-index', { fusion });
 				.json({
 					message: 'Get all fusions',
 					fusion
@@ -36,9 +54,12 @@ router.post('/', (req, res) => { // CREATE //
 	fusionBody.gems = [];
 	for (const key in fusionBody) {
 		if (fusionBody[key] === 'on') {
-			fusionBody.gems.unshift(key);
+			fusionBody.gems.append(key);
 		}
 	}
+	// find chosen gems by id
+	// give gemIDs to fusion
+	// give fusionID to gems
 	const fusion = new Fusion(fusionBody);
 	fusion
 		.save()
@@ -59,7 +80,30 @@ router.get('/:fusionID', (req, res) => { // SHOW //
 				.find({ fusion })
 				.then((gem) => {
 					res
-						// .render('fusion-show.hbs', { gem, fusion })
+						.render('fusion-show.hbs', { gem, fusion });
+					// .json({
+					// 	message: 'Show this fusion with the gems who create it',
+					// 	gem,
+					// 	fusion
+					// })
+					// .status(200);
+				});
+		})
+		.catch((err) => {
+			console.log(err.message);
+		});
+});
+
+router.get('/:fusionID/json', (req, res) => { // SHOW JSON //
+	// shows a single fusion in detail
+	Fusion
+		.findById(req.params.fusionID)
+		.then((fusion) => {
+			Gem
+				.find({ fusion })
+				.then((gem) => {
+					res
+						// .render('fusion-show.hbs', { gem, fusion });
 						.json({
 							message: 'Show this fusion with the gems who create it',
 							gem,

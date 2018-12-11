@@ -1,1 +1,10 @@
-<p>gem index</p>
+<h2>Gem Index</h2>
+<ul>
+	{{#each gem}}
+	<li>
+		<a href='/gem/{{this._id}}'>
+			{{this.name}}
+		</a>
+	</li>
+	{{/each}}
+</ul>
