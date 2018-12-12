@@ -1,4 +1,11 @@
-<h2>Show {{gems.name}}</h2>
+<h2>
+	Show {{gems.name}}
+	<a href='/gem/{{gems.id}}/json'>
+		<code>
+		(JSON)
+		</code>
+	</a>
+</h2>
 
 <h3>Fusions</h3>
 {{#each gems.fusions}}
@@ -10,3 +17,9 @@
 
 <h3>Powers</h3>
 <p>{{gems.power}}</p>
+
+<h4>
+	<a href='/gem/{{gems.id}}/edit' style="outline:solid">
+		Edit
+	</a>
+</h4>

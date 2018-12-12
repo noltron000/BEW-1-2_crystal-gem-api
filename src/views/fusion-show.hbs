@@ -1,4 +1,11 @@
-<h2>Show {{fusions.name}}</h2>
+<h2>
+	Show {{fusions.name}}
+	<a href='/fusion/{{fusions.id}}/json'>
+		<code>
+		(JSON)
+		</code>
+	</a>
+</h2>
 
 <h3>Gems</h3>
 {{#each fusions.gems}}
@@ -10,3 +17,9 @@
 
 <h3>Powers</h3>
 <p>{{fusions.power}}</p>
+
+<h4>
+	<a href='/fusion/{{fusions.id}}/edit' style="outline:solid">
+		Edit
+	</a>
+</h4>
