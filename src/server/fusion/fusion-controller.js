@@ -72,7 +72,7 @@ router.post('/', (req, res) => { // DONE: CREATE //
 		});
 });
 
-router.get('/:fusionID', (req, res) => { // TODO: SHOW //
+router.get('/:fusionID', (req, res) => { // DONE: SHOW //
 	// shows a single fusion in detail
 	Fusion
 		.findById(req.params.fusionID)
@@ -86,7 +86,7 @@ router.get('/:fusionID', (req, res) => { // TODO: SHOW //
 		});
 });
 
-router.get('/:fusionID/json', (req, res) => { // TODO: SHOW JSON //
+router.get('/:fusionID/json', (req, res) => { // DONE: SHOW JSON //
 	// shows a single fusion in detail
 	Fusion
 		.findById(req.params.fusionID)
