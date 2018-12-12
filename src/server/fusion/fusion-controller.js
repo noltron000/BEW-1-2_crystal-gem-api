@@ -42,7 +42,7 @@ router.get('/new', (req, res) => { // DONE: NEW //
 		});
 });
 
-router.post('/', (req, res) => { // TODO: CREATE //
+router.post('/', (req, res) => { // DONE: CREATE //
 	// creates a new fusion
 	const fusionBody = req.body;
 	fusionBody.gems = [];
@@ -76,6 +76,7 @@ router.get('/:fusionID', (req, res) => { // TODO: SHOW //
 	// shows a single fusion in detail
 	Fusion
 		.findById(req.params.fusionID)
+		.populate('gems')
 		.then((fusions) => {
 			res // here's where SHOW differs
 				.render('fusion-show.hbs', { fusions });
@@ -89,6 +90,7 @@ router.get('/:fusionID/json', (req, res) => { // TODO: SHOW JSON //
 	// shows a single fusion in detail
 	Fusion
 		.findById(req.params.fusionID)
+		// .populate('gems')
 		.then((fusions) => {
 			res // here's where SHOW JSON differs
 				.json({

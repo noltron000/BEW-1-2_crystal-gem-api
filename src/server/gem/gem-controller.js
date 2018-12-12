@@ -54,6 +54,7 @@ router.get('/:gemID', (req, res) => { // DONE: SHOW //
 	// shows a single gem in detail
 	Gem
 		.findById(req.params.gemID)
+		.populate('fusions')
 		.then((gems) => {
 			res // here's where SHOW differs
 				.render('gem-show.hbs', { gems });
@@ -67,6 +68,7 @@ router.get('/:gemID/json', (req, res) => { // DONE: SHOW JSON //
 	// shows a single gem in detail
 	Gem
 		.findById(req.params.gemID)
+		// .populate('fusions')
 		.then((gems) => {
 			res  // here's where SHOW JSON differs
 				.json({
@@ -82,7 +84,14 @@ router.get('/:gemID/json', (req, res) => { // DONE: SHOW JSON //
 
 router.get('/:gemID/edit', (req, res) => { // TODO: EDIT //
 	// shows a gem edit form
-	res.render('gem-edit');
+	Gem
+		.findById(req.params.gemID)
+		.then((gem) => {
+			res.render('gem-edit', { gem });
+		})
+		.catch((err) => {
+			console.log(err.message);
+		});
 });
 
 router.put('/:gemID', (req, res) => { // TODO: UPDATE //
