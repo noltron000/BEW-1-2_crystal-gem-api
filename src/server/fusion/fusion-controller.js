@@ -3,31 +3,25 @@ const Gem = require('../gem/gem-model.js');
 const Fusion = require('../fusion/fusion-model.js');
 
 const router = new express.Router();
-router.get('/', (req, res) => { // INDEX //
+router.get('/', (req, res) => { // DONE: INDEX //
 	// indexes all fusions
 	Fusion
 		.find({})
 		.then((fusion) => {
-			res
+			res // here's where INDEX differs
 				.render('fusion-index', { fusion });
-			// .json({
-			// 	message: 'Get all fusions',
-			// 	fusion
-			// })
-			// .status(200);
 		})
 		.catch((err) => {
 			console.log(err.message);
 		});
 });
 
-router.get('/json', (req, res) => { // INDEX JSON //
+router.get('/json', (req, res) => { // DONE: INDEX JSON //
 	// indexes all fusions
 	Fusion
 		.find({})
 		.then((fusion) => {
-			res
-				// .render('fusion-index', { fusion });
+			res // here's where INDEX JSON differs
 				.json({
 					message: 'Get all fusions',
 					fusion
@@ -39,7 +33,7 @@ router.get('/json', (req, res) => { // INDEX JSON //
 		});
 });
 
-router.get('/new', (req, res) => { // NEW //
+router.get('/new', (req, res) => { // DONE: NEW //
 	// shows a fusion creation form
 	Gem
 		.find({})
@@ -48,7 +42,7 @@ router.get('/new', (req, res) => { // NEW //
 		});
 });
 
-router.post('/', (req, res) => { // CREATE //
+router.post('/', (req, res) => { // TODO: CREATE //
 	// creates a new fusion
 	const fusionBody = req.body;
 	fusionBody.gems = [];
@@ -71,22 +65,16 @@ router.post('/', (req, res) => { // CREATE //
 		});
 });
 
-router.get('/:fusionID', (req, res) => { // SHOW //
+router.get('/:fusionID', (req, res) => { // TODO: SHOW //
 	// shows a single fusion in detail
 	Fusion
 		.findById(req.params.fusionID)
 		.then((fusion) => {
 			Gem
-				.find({ fusion })
+				.find({ fusions: fusion }) // there's a problem here, its an array! wont be exact match
 				.then((gem) => {
-					res
+					res  // here's where SHOW differs
 						.render('fusion-show.hbs', { gem, fusion });
-					// .json({
-					// 	message: 'Show this fusion with the gems who create it',
-					// 	gem,
-					// 	fusion
-					// })
-					// .status(200);
 				});
 		})
 		.catch((err) => {
@@ -94,7 +82,7 @@ router.get('/:fusionID', (req, res) => { // SHOW //
 		});
 });
 
-router.get('/:fusionID/json', (req, res) => { // SHOW JSON //
+router.get('/:fusionID/json', (req, res) => { // TODO: SHOW JSON //
 	// shows a single fusion in detail
 	Fusion
 		.findById(req.params.fusionID)
@@ -102,8 +90,7 @@ router.get('/:fusionID/json', (req, res) => { // SHOW JSON //
 			Gem
 				.find({ fusion })
 				.then((gem) => {
-					res
-						// .render('fusion-show.hbs', { gem, fusion });
+					res // here's where SHOW JSON differs
 						.json({
 							message: 'Show this fusion with the gems who create it',
 							gem,
@@ -117,16 +104,16 @@ router.get('/:fusionID/json', (req, res) => { // SHOW JSON //
 		});
 });
 
-router.get('/:fusionID/edit', (req, res) => { // EDIT //
+router.get('/:fusionID/edit', (req, res) => { // TODO: EDIT //
 	// shows a fusion edit form
 	res.render('fusion-edit');
 });
 
-router.put('/:fusionID', (req, res) => { // UPDATE //
+router.put('/:fusionID', (req, res) => { // TODO: UPDATE //
 	console.log(res);
 });
 
-router.delete('/:fusionID', (req, res) => { // DELETE //
+router.delete('/:fusionID', (req, res) => { // TODO: DELETE //
 	console.log(res);
 });
 

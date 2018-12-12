@@ -9,10 +9,10 @@ const GemSchema = new Schema({
 		required: true,
 		unique: true
 	},
-	fusions: {
+	fusions: [{
 		type: Schema.Types.ObjectId,
 		ref: 'Fusion',
-	},
+	}],
 	weapon: {
 		type: String,
 		required: true
