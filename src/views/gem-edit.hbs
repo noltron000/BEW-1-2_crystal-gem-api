@@ -1,7 +1,8 @@
-<h2>Edit a gem</h2>
+<h2>Edit {{gem.name}}</h2>
 
 <!-- Create Gem Form -->
-<form action='/gem/:ID?_method=put' method='post'>
+<form action='/gem/:gemID?_method=put' method='post'>
+
 	<fieldset>
 		<legend>
 			Basics
@@ -11,7 +12,7 @@
 			<label for='name'>
 				Gem
 			</label><br />
-			<input type='text' name='name' id='name' />
+			<input type='text' name='name' id='name' value='{{gem.name}}' />
 		</div>
 	</fieldset>
 
@@ -24,14 +25,14 @@
 			<label for='weapon'>
 				Signature Weapon
 			</label><br />
-			<input type='text' name='weapon' id='weapon' />
+			<input type='text' name='weapon' id='weapon' value='{{gem.weapon}}' />
 		</div>
 
 		<div>
 			<label for='power'>
 				Secret Power
 			</label><br />
-			<input type='text' name='power' id='power' />
+			<input type='text' name='power' id='power' value='{{gem.power}}' />
 		</div>
 
 	</fieldset>

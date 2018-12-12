@@ -39,6 +39,6 @@ if (!module.parent) {
 }
 
 // // get data
-// const data = require('./data/flamewarz-db.js');
+// const data = require('./config/data.js');
 
 module.exports = app;

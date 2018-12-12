@@ -11,7 +11,7 @@ const FusionSchema = new Schema({
 	},
 	gems: [{
 		type: Schema.Types.ObjectId,
-		ref: 'Gem',
+		ref: 'Gem'
 	}],
 	weapon: {
 		type: String,

@@ -12,7 +12,7 @@ router.get('/', (req, res) => { // DONE: INDEX //
 				.render('fusion-index', { fusions });
 		})
 		.catch((err) => {
-			console.log(err.message);
+			console.error(err);
 		});
 });
 
@@ -29,7 +29,7 @@ router.get('/json', (req, res) => { // DONE: INDEX JSON //
 				.status(200);
 		})
 		.catch((err) => {
-			console.log(err.message);
+			console.error(err);
 		});
 });
 
@@ -39,10 +39,13 @@ router.get('/new', (req, res) => { // DONE: NEW //
 		.find({})
 		.then((gems) => {
 			res.render('fusion-new.hbs', { gems });
+		})
+		.catch((err) => {
+			console.error(err);
 		});
 });
 
-router.post('/', (req, res) => { // DONE: CREATE //
+router.post('/', (req, res) => { // TODO: CREATE //
 	// creates a new fusion
 	const fusionBody = req.body;
 	fusionBody.gems = [];
@@ -106,7 +109,28 @@ router.get('/:fusionID/json', (req, res) => { // DONE: SHOW JSON //
 
 router.get('/:fusionID/edit', (req, res) => { // TODO: EDIT //
 	// shows a fusion edit form
-	res.render('fusion-edit');
+	Gem
+		.find({})
+		.then((gems) => {
+			Fusion
+				.findById(req.params.fusionID)
+				.then((fusion) => {
+					// ////////////// PROBLEMS ARE HAPPENING
+					// console.log(fusion.gems)
+					// gems.forEach(gem => {
+					// 	console.log(gem._id.toString())
+					// 	console.log(fusion.gems.filter(fuseGemID => gem._id.toString() === fuseGemID))
+					// });
+					// ////////////// END PROBLEMS
+					res.render('fusion-edit', { fusion, gems });
+				})
+				.catch((err) => {
+					console.error(err);
+				});
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 router.put('/:fusionID', (req, res) => { // TODO: UPDATE //

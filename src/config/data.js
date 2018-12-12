@@ -14,5 +14,6 @@ mongoose.connect(
 );
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection Error:'));
 mongoose.set('debug', true);
+mongoose.set('useCreateIndex', true);
 
 module.exports = mongoose.connection;

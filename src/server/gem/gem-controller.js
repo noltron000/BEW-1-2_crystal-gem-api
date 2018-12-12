@@ -11,7 +11,7 @@ router.get('/', (req, res) => { // DONE: INDEX //
 				.render('gem-index', { gems });
 		})
 		.catch((err) => {
-			console.log(err.message);
+			console.error(err);
 		});
 });
 
@@ -28,7 +28,7 @@ router.get('/json', (req, res) => { // DONE: INDEX JSON //
 				.status(200);
 		})
 		.catch((err) => {
-			console.log(err.message);
+			console.error(err);
 		});
 });
 
@@ -46,7 +46,7 @@ router.post('/', (req, res) => { // DONE: CREATE //
 			res.redirect('/gem');
 		})
 		.catch((err) => {
-			console.log(err.message);
+			console.error(err);
 		});
 });
 
@@ -60,7 +60,7 @@ router.get('/:gemID', (req, res) => { // DONE: SHOW //
 				.render('gem-show.hbs', { gems });
 		})
 		.catch((err) => {
-			console.log(err.message);
+			console.error(err);
 		});
 });
 
@@ -78,7 +78,7 @@ router.get('/:gemID/json', (req, res) => { // DONE: SHOW JSON //
 				.status(200);
 		})
 		.catch((err) => {
-			console.log(err.message);
+			console.error(err);
 		});
 });
 
@@ -90,7 +90,7 @@ router.get('/:gemID/edit', (req, res) => { // TODO: EDIT //
 			res.render('gem-edit', { gem });
 		})
 		.catch((err) => {
-			console.log(err.message);
+			console.error(err);
 		});
 });
 
