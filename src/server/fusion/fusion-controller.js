@@ -7,9 +7,9 @@ router.get('/', (req, res) => { // DONE: INDEX //
 	// indexes all fusions
 	Fusion
 		.find({})
-		.then((fusion) => {
+		.then((fusions) => {
 			res // here's where INDEX differs
-				.render('fusion-index', { fusion });
+				.render('fusion-index', { fusions });
 		})
 		.catch((err) => {
 			console.log(err.message);
@@ -17,14 +17,14 @@ router.get('/', (req, res) => { // DONE: INDEX //
 });
 
 router.get('/json', (req, res) => { // DONE: INDEX JSON //
-	// indexes all fusions
+	// indexes all fusions and returns json
 	Fusion
 		.find({})
-		.then((fusion) => {
+		.then((fusions) => {
 			res // here's where INDEX JSON differs
 				.json({
 					message: 'Get all fusions',
-					fusion
+					fusions
 				})
 				.status(200);
 		})
@@ -37,8 +37,8 @@ router.get('/new', (req, res) => { // DONE: NEW //
 	// shows a fusion creation form
 	Gem
 		.find({})
-		.then((gem) => {
-			res.render('fusion-new.hbs', { gem });
+		.then((gems) => {
+			res.render('fusion-new.hbs', { gems });
 		});
 });
 
@@ -46,18 +46,25 @@ router.post('/', (req, res) => { // TODO: CREATE //
 	// creates a new fusion
 	const fusionBody = req.body;
 	fusionBody.gems = [];
+	// give gemIDs to fusion, in array
 	for (const key in fusionBody) {
 		if (fusionBody[key] === 'on') {
-			fusionBody.gems.append(key);
+			fusionBody.gems.push(key);
 		}
 	}
-	// find chosen gems by id
-	// give gemIDs to fusion
-	// give fusionID to gems
 	const fusion = new Fusion(fusionBody);
 	fusion
 		.save()
 		.then(() => {
+			// give fusionID to gems, in array
+			for (const key in fusionBody) {
+				if (fusionBody[key] === 'on') {
+					Gem.findById(key, (err, gem) => {
+						gem.fusions.push(fusion._id);
+						gem.save();
+					});
+				}
+			}
 			res.redirect('/fusion');
 		})
 		.catch((err) => {
@@ -69,13 +76,9 @@ router.get('/:fusionID', (req, res) => { // TODO: SHOW //
 	// shows a single fusion in detail
 	Fusion
 		.findById(req.params.fusionID)
-		.then((fusion) => {
-			Gem
-				.find({ fusions: fusion }) // there's a problem here, its an array! wont be exact match
-				.then((gem) => {
-					res  // here's where SHOW differs
-						.render('fusion-show.hbs', { gem, fusion });
-				});
+		.then((fusions) => {
+			res // here's where SHOW differs
+				.render('fusion-show.hbs', { fusions });
 		})
 		.catch((err) => {
 			console.log(err.message);
@@ -86,18 +89,13 @@ router.get('/:fusionID/json', (req, res) => { // TODO: SHOW JSON //
 	// shows a single fusion in detail
 	Fusion
 		.findById(req.params.fusionID)
-		.then((fusion) => {
-			Gem
-				.find({ fusion })
-				.then((gem) => {
-					res // here's where SHOW JSON differs
-						.json({
-							message: 'Show this fusion with the gems who create it',
-							gem,
-							fusion
-						})
-						.status(200);
-				});
+		.then((fusions) => {
+			res // here's where SHOW JSON differs
+				.json({
+					message: 'Show this fusion with the gems who create it',
+					fusions
+				})
+				.status(200);
 		})
 		.catch((err) => {
 			console.log(err.message);

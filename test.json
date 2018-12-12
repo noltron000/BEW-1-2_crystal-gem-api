@@ -1,0 +1,217 @@
+{
+	"message": "Get all gems",
+	"gems": [
+		{
+			"fusions": [
+				"5c1093069de9567c7a58582d",
+				"5c109564d4e0317dc9922f08",
+				"5c109e64d4e0317dc9922f15",
+				"5c109e85d4e0317dc9922f16",
+				"5c109ec2d4e0317dc9922f17"
+			],
+			"_id": "5c1092e89de9567c7a58582b",
+			"name": "Ruby",
+			"weapon": "gauntlets",
+			"power": "super-strength, control fire",
+			"__v": 5
+		},
+		{
+			"fusions": [
+				"5c1093069de9567c7a58582d",
+				"5c109564d4e0317dc9922f08",
+				"5c109e85d4e0317dc9922f16",
+				"5c109ec2d4e0317dc9922f17"
+			],
+			"_id": "5c1092f79de9567c7a58582c",
+			"name": "Sapphire",
+			"weapon": "brass knuckles",
+			"power": "future vision, control frost",
+			"__v": 4
+		},
+		{
+			"fusions": [
+				"5c109564d4e0317dc9922f08",
+				"5c109c73d4e0317dc9922f13",
+				"5c109ec2d4e0317dc9922f17"
+			],
+			"_id": "5c1093e5d4e0317dc9922f06",
+			"name": "Amethyst",
+			"weapon": "crystal whip",
+			"power": "polymorph",
+			"__v": 3
+		},
+		{
+			"fusions": [
+				"5c1098e9d4e0317dc9922f0f",
+				"5c109c73d4e0317dc9922f13"
+			],
+			"_id": "5c1095cbd4e0317dc9922f0a",
+			"name": "Pink Diamond",
+			"weapon": "shield",
+			"power": "magical healing, anti-gravity",
+			"__v": 2
+		},
+		{
+			"fusions": [
+				"5c1098e9d4e0317dc9922f0f",
+				"5c109e64d4e0317dc9922f15",
+				"5c109e85d4e0317dc9922f16",
+				"5c109ec2d4e0317dc9922f17"
+			],
+			"_id": "5c1095e9d4e0317dc9922f0b",
+			"name": "Pearl",
+			"weapon": "magic spear",
+			"power": "projection",
+			"__v": 4
+		},
+		{
+			"fusions": [],
+			"_id": "5c109732d4e0317dc9922f0c",
+			"name": "Yellow Diamond",
+			"weapon": "—",
+			"power": "lightning, anger",
+			"__v": 0
+		},
+		{
+			"fusions": [],
+			"_id": "5c109753d4e0317dc9922f0d",
+			"name": "Blue Diamond",
+			"weapon": "—",
+			"power": "sorrow, aura of emotion",
+			"__v": 0
+		},
+		{
+			"fusions": [],
+			"_id": "5c10979bd4e0317dc9922f0e",
+			"name": "White Diamond",
+			"weapon": "—",
+			"power": "—",
+			"__v": 0
+		},
+		{
+			"fusions": [
+				"5c109b63d4e0317dc9922f12"
+			],
+			"_id": "5c109a40d4e0317dc9922f10",
+			"name": "Lapis Lazuli",
+			"weapon": "—",
+			"power": "control water, wings of water",
+			"__v": 1
+		},
+		{
+			"fusions": [
+				"5c109b63d4e0317dc9922f12"
+			],
+			"_id": "5c109b3dd4e0317dc9922f11",
+			"name": "Jasper",
+			"weapon": "crash helmet",
+			"power": "comet charge, martial arts",
+			"__v": 1
+		},
+		{
+			"fusions": [],
+			"_id": "5c109d74d4e0317dc9922f14",
+			"name": "Topaz",
+			"weapon": "mace",
+			"power": "—",
+			"__v": 0
+		}
+	]
+},
+{
+	"message": "Get all fusions",
+	"fusions": [
+		{
+			"gems": [
+				"5c1092e89de9567c7a58582b",
+				"5c1092f79de9567c7a58582c"
+			],
+			"_id": "5c1093069de9567c7a58582d",
+			"name": "Garnet",
+			"weapon": "mega-gauntlets",
+			"power": "wisdom",
+			"__v": 0
+		},
+		{
+			"gems": [
+				"5c1092e89de9567c7a58582b",
+				"5c1092f79de9567c7a58582c",
+				"5c1093e5d4e0317dc9922f06"
+			],
+			"_id": "5c109564d4e0317dc9922f08",
+			"name": "Sugilite",
+			"weapon": "ball-and-chain",
+			"power": "pure destruction",
+			"__v": 0
+		},
+		{
+			"gems": [
+				"5c1095cbd4e0317dc9922f0a",
+				"5c1095e9d4e0317dc9922f0b"
+			],
+			"_id": "5c1098e9d4e0317dc9922f0f",
+			"name": "Rainbow Quartz",
+			"weapon": "—",
+			"power": "dancing",
+			"__v": 0
+		},
+		{
+			"gems": [
+				"5c109a40d4e0317dc9922f10",
+				"5c109b3dd4e0317dc9922f11"
+			],
+			"_id": "5c109b63d4e0317dc9922f12",
+			"name": "Malachite",
+			"weapon": "—",
+			"power": "—",
+			"__v": 0
+		},
+		{
+			"gems": [
+				"5c1093e5d4e0317dc9922f06",
+				"5c1095cbd4e0317dc9922f0a"
+			],
+			"_id": "5c109c73d4e0317dc9922f13",
+			"name": "Smoky Quartz",
+			"weapon": "yo-yo",
+			"power": "—",
+			"__v": 0
+		},
+		{
+			"gems": [
+				"5c1092e89de9567c7a58582b",
+				"5c1095e9d4e0317dc9922f0b"
+			],
+			"_id": "5c109e64d4e0317dc9922f15",
+			"name": "Rhodonite",
+			"weapon": "—",
+			"power": "—",
+			"__v": 0
+		},
+		{
+			"gems": [
+				"5c1092e89de9567c7a58582b",
+				"5c1092f79de9567c7a58582c",
+				"5c1095e9d4e0317dc9922f0b"
+			],
+			"_id": "5c109e85d4e0317dc9922f16",
+			"name": "Sardonyx",
+			"weapon": "hammer",
+			"power": "comedian",
+			"__v": 0
+		},
+		{
+			"gems": [
+				"5c1092e89de9567c7a58582b",
+				"5c1092f79de9567c7a58582c",
+				"5c1093e5d4e0317dc9922f06",
+				"5c1095e9d4e0317dc9922f0b"
+			],
+			"_id": "5c109ec2d4e0317dc9922f17",
+			"name": "Alexandrite",
+			"weapon": "—",
+			"power": "mythical power",
+			"__v": 0
+		}
+	]
+}

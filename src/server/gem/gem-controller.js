@@ -1,15 +1,14 @@
 const express = require('express');
 const Gem = require('../gem/gem-model.js');
-const Fusion = require('../fusion/fusion-model.js');
 
 const router = new express.Router();
 router.get('/', (req, res) => { // DONE: INDEX //
 	// indexes all gems
 	Gem
 		.find({})
-		.then((gem) => {
-			res
-				.render('gem-index', { gem });
+		.then((gems) => {
+			res // here's where INDEX differs
+				.render('gem-index', { gems });
 		})
 		.catch((err) => {
 			console.log(err.message);
@@ -20,11 +19,11 @@ router.get('/json', (req, res) => { // DONE: INDEX JSON //
 	// indexes all gems and returns json
 	Gem
 		.find({})
-		.then((gem) => {
-			res
+		.then((gems) => {
+			res // here's where INDEX JSON differs
 				.json({
 					message: 'Get all gems',
-					gem
+					gems
 				})
 				.status(200);
 		})
@@ -38,7 +37,7 @@ router.get('/new', (req, res) => { // DONE: NEW //
 	res.render('gem-new.hbs');
 });
 
-router.post('/', (req, res) => { // TODO: CREATE //
+router.post('/', (req, res) => { // DONE: CREATE //
 	// creates a new gem
 	const gem = new Gem(req.body);
 	gem
@@ -51,39 +50,30 @@ router.post('/', (req, res) => { // TODO: CREATE //
 		});
 });
 
-router.get('/:gemID', (req, res) => { // TODO: SHOW //
+router.get('/:gemID', (req, res) => { // DONE: SHOW //
 	// shows a single gem in detail
 	Gem
 		.findById(req.params.gemID)
-		.then((gem) => {
-			Fusion
-				.find({ gems: gem }) // there's a problem here, its an array! wont be exact match
-				.then((fusion) => {
-					res
-						.render('gem-show.hbs', { gem, fusion });
-				});
+		.then((gems) => {
+			res // here's where SHOW differs
+				.render('gem-show.hbs', { gems });
 		})
 		.catch((err) => {
 			console.log(err.message);
 		});
 });
 
-router.get('/:gemID/json', (req, res) => { // TODO: SHOW JSON //
+router.get('/:gemID/json', (req, res) => { // DONE: SHOW JSON //
 	// shows a single gem in detail
 	Gem
 		.findById(req.params.gemID)
-		.then((gem) => {
-			Fusion
-				.find({ gem })
-				.then((fusion) => {
-					res
-						.json({
-							message: 'Show this fusion with the gems who create it',
-							gem,
-							fusion
-						})
-						.status(200);
-				});
+		.then((gems) => {
+			res  // here's where SHOW JSON differs
+				.json({
+					message: 'Show this fusion with the gems who create it',
+					gems
+				})
+				.status(200);
 		})
 		.catch((err) => {
 			console.log(err.message);
