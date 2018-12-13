@@ -1,5 +1,8 @@
 # Steven Universe Gem API
-**GitHub Repository: https://github.com/noltron000/BEW-1-2_crystal-gem-api**<hr />
+**Live Website:** https://crystal-gem-api.herokuapp.com/ <br />
+**Docsify Brochure:** https://noltron000.github.io/BEW-1-2_crystal-gem-api/ <br />
+**GitHub Repository:** https://github.com/noltron000/BEW-1-2_crystal-gem-api <hr />
+
 This API's goal is to help serve information about gem characters in the Steven Universe cartoon series in a more digestable format. Gem's have fusions and vice versa. Both of these items also have Special Weapons and Secret Powers.
 
 > *What's Steven Universe? It's a popular cartoon directed by Rebecca Sugar.<br />*
