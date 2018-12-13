@@ -3,6 +3,7 @@ const express = require('express');
 const exprHBS = require('express-handlebars');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const methodOverride = require('method-override');
 // Required files
 const auth = require('../server/auth/auth-route');
 const gem = require('../server/gem/gem-controller.js');
@@ -16,6 +17,10 @@ const app = express();
 // Use body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// override with POST having ?_method=DELETE or ?_method=PUT
+app.use(express.static('public'));
+app.use(methodOverride('_method'));
 
 // Enable CORS - Cross Origin Resource Sharing.
 app.use(cors());

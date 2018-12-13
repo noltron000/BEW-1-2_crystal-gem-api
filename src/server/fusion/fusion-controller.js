@@ -115,13 +115,13 @@ router.get('/:fusionID/edit', (req, res) => { // TODO: EDIT //
 			Fusion
 				.findById(req.params.fusionID)
 				.then((fusion) => {
-					// ////////////// PROBLEMS ARE HAPPENING
+					//////////////// PROBLEMS ARE HAPPENING
 					// console.log(fusion.gems)
 					// gems.forEach(gem => {
 					// 	console.log(gem._id.toString())
 					// 	console.log(fusion.gems.filter(fuseGemID => gem._id.toString() === fuseGemID))
 					// });
-					// ////////////// END PROBLEMS
+					//////////////// END PROBLEMS
 					res.render('fusion-edit', { fusion, gems });
 				})
 				.catch((err) => {
@@ -134,7 +134,13 @@ router.get('/:fusionID/edit', (req, res) => { // TODO: EDIT //
 });
 
 router.put('/:fusionID', (req, res) => { // TODO: UPDATE //
-	console.log(res);
+	Fusion.findByIdAndUpdate(req.params.fusionID, req.body)
+		.then((fusion) => {
+			res.redirect(`/fusion/${fusion._id}`);
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 router.delete('/:fusionID', (req, res) => { // TODO: DELETE //

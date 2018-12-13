@@ -95,7 +95,14 @@ router.get('/:gemID/edit', (req, res) => { // TODO: EDIT //
 });
 
 router.put('/:gemID', (req, res) => { // TODO: UPDATE //
-	console.log(res);
+	Gem.findByIdAndUpdate(req.params.gemID, req.body)
+		.then((gem) => {
+			console.log(gem);
+			res.redirect(`/gem/${gem._id}`);
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 router.delete('/:gemID', (req, res) => { // TODO: DELETE //

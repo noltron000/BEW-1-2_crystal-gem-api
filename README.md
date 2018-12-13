@@ -11,8 +11,8 @@ This API will serve information for gems in the Steven Universe cartoon.
 		- [X] new
 		- [X] create
 		- [X] show
-		- [ ] edit
-		- [ ] update
+		- [X] edit
+		- [X] update
 		- [ ] delete
 	- [X] gem-model
 - [ ] Fusions
@@ -21,7 +21,7 @@ This API will serve information for gems in the Steven Universe cartoon.
 		- [X] new
 		- [X] create
 		- [X] show
-		- [ ] edit
-		- [ ] update
+		- [X] edit
+		- [X] update
 		- [ ] delete
 	- [X] fusion-model
