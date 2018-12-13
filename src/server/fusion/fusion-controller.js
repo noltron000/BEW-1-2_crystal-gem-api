@@ -71,7 +71,7 @@ router.post('/', (req, res) => { // TODO: CREATE //
 			res.redirect('/fusion');
 		})
 		.catch((err) => {
-			console.log(err.message);
+			console.error(err);
 		});
 });
 
@@ -85,7 +85,7 @@ router.get('/:fusionID', (req, res) => { // DONE: SHOW //
 				.render('fusion-show.hbs', { fusions });
 		})
 		.catch((err) => {
-			console.log(err.message);
+			console.error(err);
 		});
 });
 
@@ -103,7 +103,7 @@ router.get('/:fusionID/json', (req, res) => { // DONE: SHOW JSON //
 				.status(200);
 		})
 		.catch((err) => {
-			console.log(err.message);
+			console.error(err);
 		});
 });
 
@@ -134,8 +134,24 @@ router.get('/:fusionID/edit', (req, res) => { // TODO: EDIT //
 });
 
 router.put('/:fusionID', (req, res) => { // TODO: UPDATE //
-	Fusion.findByIdAndUpdate(req.params.fusionID, req.body)
+	const fusionBody = req.body;
+	fusionBody.gems = [];
+	// give gemIDs to fusion, in array
+	for (const key in fusionBody) {
+		if (fusionBody[key] === 'on') {
+			fusionBody.gems.push(key);
+		}
+	}
+	Fusion.findByIdAndUpdate(req.params.fusionID, fusionBody)
 		.then((fusion) => {
+			for (const key in fusionBody) {
+				if (fusionBody[key] === 'on') {
+					Gem.findById(key, (err, gem) => {
+						gem.fusions.push(fusion._id);
+						gem.save();
+					});
+				}
+			}
 			res.redirect(`/fusion/${fusion._id}`);
 		})
 		.catch((err) => {
@@ -144,7 +160,14 @@ router.put('/:fusionID', (req, res) => { // TODO: UPDATE //
 });
 
 router.delete('/:fusionID', (req, res) => { // TODO: DELETE //
-	console.log(res);
+	Fusion
+		.findByIdAndRemove(req.params.fusionID)
+		.then(() => {
+			res.redirect('/fusion');
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 module.exports = router;

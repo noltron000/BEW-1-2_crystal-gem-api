@@ -97,7 +97,6 @@ router.get('/:gemID/edit', (req, res) => { // TODO: EDIT //
 router.put('/:gemID', (req, res) => { // TODO: UPDATE //
 	Gem.findByIdAndUpdate(req.params.gemID, req.body)
 		.then((gem) => {
-			console.log(gem);
 			res.redirect(`/gem/${gem._id}`);
 		})
 		.catch((err) => {
@@ -106,7 +105,14 @@ router.put('/:gemID', (req, res) => { // TODO: UPDATE //
 });
 
 router.delete('/:gemID', (req, res) => { // TODO: DELETE //
-	console.log(res);
+	Gem
+		.findByIdAndRemove(req.params.gemID)
+		.then(() => {
+			res.redirect('/gem');
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 module.exports = router;
