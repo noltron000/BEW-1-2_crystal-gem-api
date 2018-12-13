@@ -8,16 +8,16 @@ const app = require('./config/express');
 const debug = require('debug')('auth-api-starterpack:index');
 
 // connect to mongo db
-const mongoUri = config.mongo.host;
+const mongoUri = process.env.MONGODB_URI || config.mongo.host;
 mongoose.connect(
 	mongoUri,
 	{ useNewUrlParser: true },
 	{ server: { socketOptions: { keepAlive: 1 } } }
 );
 
-// mongoose.connection.on('error', () => {
-// 	throw new Error(`unable to connect to database: ${mongoUri}`);
-// });
+mongoose.connection.on('error', () => {
+	throw new Error(`unable to connect to database: ${mongoUri}`);
+});
 
 // print mongoose logs in dev env
 if (config.mongooseDebug) {
