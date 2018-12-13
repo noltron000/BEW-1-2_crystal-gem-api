@@ -1,11 +1,12 @@
 # Steven Universe Gem API
-This API's goal is to serve information about gem characters in the Steven Universe cartoon series.
+**GitHub Repository: https://github.com/noltron000/BEW-1-2_crystal-gem-api**<hr />
+This API's goal is to help serve information about gem characters in the Steven Universe cartoon series in a more digestable format. Gem's have fusions and vice versa. Both of these items also have Special Weapons and Secret Powers.
 
-> What's Steven Universe?
-> See http://steven-universe.wikia.com/wiki/Steven_Universe_Wiki
+> *What's Steven Universe? It's a popular cartoon directed by Rebecca Sugar.<br />*
+> *See http://steven-universe.wikia.com/wiki/Steven_Universe_Wiki*
 
 ## Using the Website
-The API has a modest frontend for ease of use. The website is hosted on <a href='https://crystal-gem-api.herokuapp.com/'>Heroku</a>.
+The API has a modest frontend for ease of use. The website is hosted on Heroku @ https://crystal-gem-api.herokuapp.com/
 
 ### Overview
 | Route              | Functionality                                 |
@@ -46,8 +47,8 @@ The API has a modest frontend for ease of use. The website is hosted on <a href=
 ***What are fusions?***
 *Fusions* are super-powerful combinations of gems, achieved through an extraordinary connection. Their mind and body form into one.
 
-## Aspirations / `TODO`
+## Aspirations
 In future iterations, it would be nice to include:
 - User provisioning
 - Tests & error handling
-- Structure refactor
+- Structure refactoring
