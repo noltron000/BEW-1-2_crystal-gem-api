@@ -15,9 +15,9 @@ mongoose.connect(
 	{ server: { socketOptions: { keepAlive: 1 } } }
 );
 
-mongoose.connection.on('error', () => {
-	throw new Error(`unable to connect to database: ${mongoUri}`);
-});
+// mongoose.connection.on('error', () => {
+// 	throw new Error(`unable to connect to database: ${mongoUri}`);
+// });
 
 // print mongoose logs in dev env
 if (config.mongooseDebug) {
@@ -28,14 +28,10 @@ if (config.mongooseDebug) {
 
 // module.parent check is required to support mocha watch
 // src: https://github.com/mochajs/mocha/issues/1912
-if (!module.parent) {
-	// listen on port config.port
-	app.listen(process.env.PORT || config.port, () => {
-		console.info(`server started on port ${config.port} (${config.env})`); // eslint-disable-line no-console
-	});
-}
-
-// // get data
-// const data = require('./config/data.js');
+// if (!module.parent) {
+// listen on port config.port
+app.listen(process.env.PORT || config.port, () => {
+	console.info(`server started on port ${config.port} (${config.env})`); // eslint-disable-line no-console
+});
 
 module.exports = app;
