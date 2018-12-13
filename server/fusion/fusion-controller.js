@@ -45,7 +45,7 @@ router.get('/new', (req, res) => { // DONE: NEW //
 		});
 });
 
-router.post('/', (req, res) => { // TODO: CREATE //
+router.post('/', (req, res) => { // DONE: CREATE //
 	// creates a new fusion
 	const fusionBody = req.body;
 	fusionBody.gems = [];
@@ -107,7 +107,7 @@ router.get('/:fusionID/json', (req, res) => { // DONE: SHOW JSON //
 		});
 });
 
-router.get('/:fusionID/edit', (req, res) => { // TODO: EDIT //
+router.get('/:fusionID/edit', (req, res) => { // DONE: EDIT //
 	// shows a fusion edit form
 	Gem
 		.find({})
@@ -133,7 +133,7 @@ router.get('/:fusionID/edit', (req, res) => { // TODO: EDIT //
 		});
 });
 
-router.put('/:fusionID', (req, res) => { // TODO: UPDATE //
+router.put('/:fusionID', (req, res) => { // DONE: UPDATE //
 	const fusionBody = req.body;
 	fusionBody.gems = [];
 	// give gemIDs to fusion, in array
@@ -159,7 +159,7 @@ router.put('/:fusionID', (req, res) => { // TODO: UPDATE //
 		});
 });
 
-router.delete('/:fusionID', (req, res) => { // TODO: DELETE //
+router.delete('/:fusionID', (req, res) => { // DONE: DELETE //
 	Fusion
 		.findByIdAndRemove(req.params.fusionID)
 		.then(() => {

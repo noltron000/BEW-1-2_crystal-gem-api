@@ -82,7 +82,7 @@ router.get('/:gemID/json', (req, res) => { // DONE: SHOW JSON //
 		});
 });
 
-router.get('/:gemID/edit', (req, res) => { // TODO: EDIT //
+router.get('/:gemID/edit', (req, res) => { // DONE: EDIT //
 	// shows a gem edit form
 	Gem
 		.findById(req.params.gemID)
@@ -94,7 +94,7 @@ router.get('/:gemID/edit', (req, res) => { // TODO: EDIT //
 		});
 });
 
-router.put('/:gemID', (req, res) => { // TODO: UPDATE //
+router.put('/:gemID', (req, res) => { // DONE: UPDATE //
 	Gem.findByIdAndUpdate(req.params.gemID, req.body)
 		.then((gem) => {
 			res.redirect(`/gem/${gem._id}`);
@@ -104,7 +104,7 @@ router.put('/:gemID', (req, res) => { // TODO: UPDATE //
 		});
 });
 
-router.delete('/:gemID', (req, res) => { // TODO: DELETE //
+router.delete('/:gemID', (req, res) => { // DONE: DELETE //
 	Gem
 		.findByIdAndRemove(req.params.gemID)
 		.then(() => {
