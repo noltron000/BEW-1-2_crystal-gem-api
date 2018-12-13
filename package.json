@@ -1,6 +1,0 @@
-{
-	"dependencies": {
-		"eslint": "^5.10.0",
-		"express-handlebars": "^3.0.0"
-	}
-}
