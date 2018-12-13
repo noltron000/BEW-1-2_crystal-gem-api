@@ -5,23 +5,23 @@ This API will serve information for gems in the Steven Universe cartoon.
 > see http://steven-universe.wikia.com/wiki/Steven_Universe_Wiki
 
 ## 'TODO' List
-- [ ] Gem
-	- [ ] gem-controller
+- [X] Gems
+	- [X] gem-controller
 		- [X] index
 		- [X] new
-		- [ ] create
-		- [ ] show
-		- [ ] edit
-		- [ ] update
-		- [ ] delete
+		- [X] create
+		- [X] show
+		- [X] edit
+		- [X] update
+		- [X] delete
 	- [X] gem-model
-- [ ] Fusion
-	- [ ] fusion-controller
+- [X] Fusions
+	- [X] fusion-controller
 		- [X] index
 		- [X] new
-		- [ ] create
-		- [ ] show
-		- [ ] edit
-		- [ ] update
-		- [ ] delete
+		- [X] create
+		- [X] show
+		- [X] edit
+		- [X] update
+		- [X] delete
 	- [X] fusion-model
