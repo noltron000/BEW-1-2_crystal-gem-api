@@ -2,15 +2,14 @@
 This API's goal is to serve information about gem characters in the Steven Universe cartoon series.
 
 > What's Steven Universe?
-> see http://steven-universe.wikia.com/wiki/Steven_Universe_Wiki
+> See http://steven-universe.wikia.com/wiki/Steven_Universe_Wiki
 
 ## Using the Website
 The API has a modest frontend for ease of use. The website is hosted on <a href='https://crystal-gem-api.herokuapp.com/'>Heroku</a>.
 
 ### Overview
-
 | Route              | Functionality                                 |
-|:------------------:|:----------------------------------------------|
+|:-------------------|:----------------------------------------------|
 | `/`                | Displays basic information                    |
 | `/gem`             | Displays all gems                             |
 | `/gem/json`        | Displays all gems in `JSON` format            |
@@ -25,7 +24,18 @@ The API has a modest frontend for ease of use. The website is hosted on <a href=
 | `/fusion/:id/json` | Displays one fusion's detail in `JSON` format |
 | `/fusion/:id/edit` | Displays fusion edit form                     |
 
-As of right now, there are a few basic routes that you can visit, including...
+## Getting Started Locally
+*Here's a step-by-step guide to set this API up locally on your computer.*
+1. Set up project files locally
+	1. Fork <a href="https://github.com/noltron000/BEW-1-2_crystal-gem-api">this repo</a>.
+	1. Open terminal; `cd` into your preferred repo library location
+	1. Clone your new fork into this location
+	1. `cd` into the new clone
+1. Host environment locally
+	1. run `nodemon` in your console
+	1. navigate to `http://localhost:4040/` in a browser of your choice
+	1. modify and digest data that you alone can access
+	1. use the apps `/json` routes to retrieve data as you please
 
 ## Definitions
 ***What are gems?***
@@ -33,3 +43,9 @@ As of right now, there are a few basic routes that you can visit, including...
 
 ***What are fusions?***
 *Fusions* are super-powerful combinations of gems, achieved through an extraordinary connection. Their mind and body form into one.
+
+## Aspirations / `TODO`
+In future iterations, it would be nice to include:
+- User provisioning
+- Tests & error handling
+- Structure refactor
