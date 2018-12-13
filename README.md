@@ -32,9 +32,11 @@ The API has a modest frontend for ease of use. The website is hosted on <a href=
 	1. Clone your new fork into this location
 	1. `cd` into the new clone
 1. Host environment locally
-	1. run `nodemon` in your console
+	1. Run `yarn install` in your terminal instance to initialize requirements
+	1. Run `nodemon` in your terminal to host the website locally
 	1. navigate to `http://localhost:4040/` in a browser of your choice
 	1. modify and digest data that you alone can access
+		- TIP: *this data is stored locally on your computer*
 	1. use the apps `/json` routes to retrieve data as you please
 
 ## Definitions
